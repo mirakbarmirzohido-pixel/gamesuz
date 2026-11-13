@@ -66,4 +66,16 @@ h2{font-size:18px;margin:8px 0 14px}.section-head{display:flex;align-items:cente
 const search=document.getElementById('search'),cards=[...document.querySelectorAll('.game')],empty=document.getElementById('empty');
 search.addEventListener('input',()=>{let q=search.value.toLowerCase().trim(),shown=0;cards.forEach(c=>{let ok=(c.dataset.name+' '+c.innerText).toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)shown++});empty.style.display=shown?'none':'block'});
 </script>
+ 
+<div id="loginBox" style="max-width:350px;margin:30px auto;padding:22px;background:#303136;color:white;border-radius:15px;text-align:center;font-family:Arial">
+  <h2>🎮 GamesUZ akkaunti</h2>
+  <input id="email" type="email" placeholder="Email manzilingiz" style="width:90%;padding:12px;margin:7px">
+  <input id="password" type="password" placeholder="Parol" style="width:90%;padding:12px;margin:7px">
+  <button id="registerBtn">Ro‘yxatdan o‘tish</button>
+  <button id="loginBtn">Kirish</button>
+  <button id="googleBtn">Google orqali kirish</button>
+  <p id="message"></p>
+  <p id="userInfo"></p>
+  <button id="logoutBtn" hidden>Chiqish</button>
+</div>
 </body></html>
