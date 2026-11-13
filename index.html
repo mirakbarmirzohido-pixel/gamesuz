@@ -4,165 +4,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GamesUZ | Premium Gaming</title>
+<title>GamesUZ — O‘yinlar olami</title>
+
 <style>
 *{box-sizing:border-box}
 :root{
---bg:#080b14;--panel:#111827;--panel2:#172238;
---blue:#3985ff;--purple:#8058ff;--text:#f5f7ff;
---muted:#9aa8c0;--border:#26334b
+ --bg:#080b16;--panel:#11182a;--panel2:#19243b;
+ --blue:#3985ff;--purple:#8757ff;
+ --text:#f5f7ff;--muted:#9ba9c2;
+ --border:#26344e
 }
-body{margin:0;background:var(--bg);color:var(--text);
-font-family:Inter,Arial,sans-serif}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,sans-serif
+}
 button,input{font:inherit}
 button{cursor:pointer;border:0}
 header{
-height:76px;display:flex;align-items:center;gap:25px;
-padding:0 6%;background:#0c1220;
-border-bottom:1px solid var(--border);
-position:sticky;top:0;z-index:10
+ position:sticky;top:0;z-index:10;
+ display:flex;align-items:center;gap:22px;
+ padding:16px 5%;background:#0b1120ee;
+ border-bottom:1px solid var(--border);
+ backdrop-filter:blur(15px)
 }
 .logo{font-size:25px;font-weight:900;white-space:nowrap}
 .logo span{color:var(--blue)}
-nav{display:flex;gap:22px}
-nav a{color:#c4cee0;text-decoration:none;font-size:14px}
-nav a:hover{color:white}
+nav{display:flex;gap:20px}
+nav a{color:#c5cee0;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--blue)}
 .search{
-flex:1;max-width:420px;margin-left:auto;
-background:#172238;border:1px solid var(--border);
-border-radius:12px;padding:13px 16px;color:white;outline:none
+ flex:1;min-width:100px;max-width:420px;margin-left:auto;
+ padding:13px 16px;border-radius:12px;
+ border:1px solid var(--border);
+ background:var(--panel2);color:white;outline:none
 }
 .search:focus{border-color:var(--blue)}
-.primary{
-background:linear-gradient(110deg,var(--blue),var(--purple));
-color:white;padding:12px 20px;border-radius:11px;font-weight:bold
+.btn{
+ padding:12px 19px;border-radius:11px;
+ color:white;font-weight:bold;
+ background:linear-gradient(110deg,var(--blue),var(--purple))
 }
 #logout{display:none}
-main{max-width:1300px;margin:auto;padding:30px 25px}
+main{max-width:1250px;margin:auto;padding:30px 24px}
 .hero{
-min-height:330px;border-radius:24px;padding:45px;
-display:flex;align-items:center;
-background:linear-gradient(100deg,#101c35 0%,#243c70 55%,#39266b 100%);
-position:relative;overflow:hidden
+ min-height:340px;padding:45px;border-radius:25px;
+ display:flex;align-items:center;position:relative;overflow:hidden;
+ background:linear-gradient(110deg,#10264a,#273b79 60%,#492b78)
 }
 .hero:after{
-content:"🎮";position:absolute;right:8%;font-size:170px;
-opacity:.22;transform:rotate(-12deg)
+ content:"🎮";position:absolute;right:8%;
+ font-size:180px;opacity:.23;transform:rotate(-13deg)
 }
-.hero-content{position:relative;z-index:1;max-width:590px}
+.hero-content{position:relative;z-index:1;max-width:600px}
 .tag{
-display:inline-block;background:#ffffff20;
-padding:8px 13px;border-radius:20px;
-font-size:12px;color:#c5dcff
+ display:inline-block;padding:8px 13px;border-radius:20px;
+ background:#ffffff20;color:#c9dcff;font-size:12px
 }
-.hero h1{font-size:44px;line-height:1.15;margin:18px 0}
-.hero p{color:#d1d9eb;line-height:1.7}
-.hero button{margin-top:15px}
+.hero h1{font-size:45px;line-height:1.15;margin:18px 0}
+.hero p{color:#d2dcf2;line-height:1.7}
+.hero .btn{margin-top:12px}
 .section-head{
-display:flex;align-items:center;justify-content:space-between;
-margin:35px 0 17px;gap:12px
+ display:flex;align-items:center;justify-content:space-between;
+ gap:12px;margin:38px 0 18px
 }
 h2{font-size:23px;margin:0}
+.muted{color:var(--muted);font-size:13px}
 .categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
 .cat{
-background:#151e30;color:#b8c5dc;
-padding:10px 17px;border-radius:20px;border:1px solid var(--border)
+ padding:10px 17px;border-radius:22px;
+ color:#c3cee2;background:var(--panel2);
+ border:1px solid var(--border)
 }
 .cat.active,.cat:hover{background:var(--blue);color:white}
 .grid{
-display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-gap:20px
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:20px
 }
 .game{
-background:var(--panel);border:1px solid var(--border);
-border-radius:17px;overflow:hidden;transition:.2s
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:17px;overflow:hidden;transition:.2s
 }
 .game:hover{transform:translateY(-5px);border-color:var(--blue)}
-.art{
-height:175px;display:flex;align-items:center;justify-content:center;
-font-size:75px;position:relative
+.cover{height:180px;position:relative;overflow:hidden}
+.cover img{
+ width:100%;height:100%;object-fit:cover;
+ transition:.3s
 }
-.art:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(0deg,#080b1480,transparent)
+.game:hover .cover img{transform:scale(1.06)}
+.cover:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(0deg,#080b16aa,transparent 65%)
 }
-.art span{z-index:1}
+.cover-icon{
+ position:absolute;z-index:1;left:16px;bottom:13px;
+ font-size:38px
+}
 .info{padding:17px}
-.info h3{margin:0 0 7px;font-size:18px}
-.info small{color:var(--muted)}
+.info h3{margin:0 0 8px;font-size:18px}
 .game-bottom{
-display:flex;align-items:center;justify-content:space-between;
-margin-top:17px
+ display:flex;align-items:center;justify-content:space-between;
+ gap:8px;margin-top:17px
 }
-.play{
-background:#1d3e72;color:#8ec0ff;
-padding:10px 14px;border-radius:9px;
-text-decoration:none;font-weight:bold;font-size:13px
-}
-.play:hover{background:var(--blue);color:white}
 .rating{color:#ffd36a;font-size:13px}
-.empty{display:none;color:var(--muted);padding:25px}
+.play{
+ display:inline-block;text-decoration:none;
+ color:white;background:#1e4380;
+ padding:10px 14px;border-radius:9px;
+ font-size:13px;font-weight:bold
+}
+.play:hover{background:var(--blue)}
+.favorite{
+ background:#202c43;color:#ff829b;
+ padding:9px 11px;border-radius:9px;font-size:17px
+}
+.favorite.active{background:#54233b}
+.empty{display:none;padding:25px;color:var(--muted)}
 .about{
-margin-top:40px;background:var(--panel);
-padding:25px;border:1px solid var(--border);
-border-radius:17px;color:var(--muted);line-height:1.7
+ margin-top:40px;padding:26px;border-radius:17px;
+ background:var(--panel);border:1px solid var(--border);
+ color:var(--muted);line-height:1.7
 }
 footer{
-text-align:center;color:#7f8ca5;
-padding:30px;border-top:1px solid var(--border);margin-top:35px
+ margin-top:40px;padding:30px;text-align:center;
+ color:#8492aa;border-top:1px solid var(--border)
 }
-/* Akkaunt oynasi */
 .modal{
-display:none;position:fixed;inset:0;background:#000c;
-z-index:30;align-items:center;justify-content:center;padding:15px
+ display:none;position:fixed;inset:0;z-index:30;
+ background:#000c;align-items:center;justify-content:center;
+ padding:15px
 }
 .modal.show{display:flex}
 .auth{
-width:100%;max-width:400px;background:#111827;
-border:1px solid #34435e;border-radius:20px;
-padding:28px;position:relative;text-align:center
+ width:100%;max-width:410px;padding:28px;
+ background:#111827;border:1px solid #34435e;
+ border-radius:20px;position:relative;text-align:center
 }
 .auth h2{margin:5px 0 10px}
 .auth p{color:var(--muted);font-size:14px}
 .auth input{
-width:100%;padding:14px;margin:7px 0;
-border:1px solid var(--border);border-radius:10px;
-background:#080b14;color:white;outline:none
+ width:100%;padding:14px;margin:7px 0;
+ border:1px solid var(--border);border-radius:10px;
+ background:#080b14;color:white;outline:none
 }
 .auth input:focus{border-color:var(--blue)}
 .auth button{width:100%;margin-top:10px}
 .google{background:white;color:#222;padding:13px;border-radius:10px}
 .close{
-position:absolute;right:13px;top:12px;
-background:#26334b;color:white;border-radius:8px;
-padding:7px 11px;width:auto!important;margin:0!important
+ position:absolute;right:13px;top:12px;
+ background:#26334b;color:white;padding:7px 11px;
+ border-radius:8px;width:auto!important;margin:0!important
 }
-#message{min-height:20px;color:#ffcf70}
+#message{min-height:20px;color:#ffd36a}
 #userInfo{color:#8dffbb}
 @media(max-width:850px){
-header{padding:12px 4%;height:auto;flex-wrap:wrap;gap:13px}
-.logo{flex:1}
-nav{order:3;width:100%;justify-content:center}
-.search{order:4;max-width:none;flex-basis:100%;margin:0}
-.login-btn{margin-left:auto}
-.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.hero{padding:30px;min-height:280px}
-.hero h1{font-size:34px}
-.hero:after{right:2%;font-size:110px}
+ header{padding:13px 4%;flex-wrap:wrap;gap:13px}
+ .logo{flex:1}
+ nav{order:3;width:100%;justify-content:center}
+ .search{order:4;max-width:none;flex-basis:100%;margin:0}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hero{padding:30px;min-height:290px}
+ .hero h1{font-size:35px}
 }
-@media(max-width:480px){
-main{padding:20px 13px}
-.grid{grid-template-columns:1fr}
-.art{height:190px}
-.hero{padding:24px;min-height:290px}
-.hero h1{font-size:30px}
-.hero:after{font-size:85px;right:5%;bottom:5%}
-nav{gap:15px}
-nav a{font-size:12px}
-.section-head h2{font-size:19px}
+@media(max-width:520px){
+ main{padding:20px 13px}
+ .grid{grid-template-columns:1fr}
+ .hero{padding:24px;min-height:290px}
+ .hero h1{font-size:30px}
+ .hero:after{font-size:90px;right:3%;bottom:5%}
+ nav{gap:15px}
+ nav a{font-size:12px}
+ .section-head h2{font-size:19px}
 }
 </style>
 </head>
+
 <body>
 <header>
  <div class="logo">🎮 <span>GAMES</span>UZ</div>
@@ -172,23 +187,25 @@ nav a{font-size:12px}
   <a href="#about">Biz haqimizda</a>
  </nav>
  <input id="search" class="search" placeholder="🔎 O‘yin qidirish...">
- <button class="primary login-btn" id="openLogin">Kirish</button>
- <button class="primary login-btn" id="logout">Chiqish</button>
+ <button class="btn" id="openLogin">Kirish</button>
+ <button class="btn" id="logout">Chiqish</button>
 </header>
 
 <main id="home">
 <section class="hero">
  <div class="hero-content">
-  <span class="tag">⚡ GAMING PLATFORM</span>
+  <span class="tag">⚡ O‘YINLAR PLATFORMASI</span>
   <h1>O‘yinlar olamiga xush kelibsiz!</h1>
-  <p>Sevimli o‘yinlaringizni toping. Yangi sarguzashtlar va cheksiz zavq sizni kutmoqda!</p>
-  <button class="primary" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">O‘yinlarni ko‘rish →</button>
+  <p>Sevimli o‘yinlaringizni toping, yangi sarguzashtlarni boshlang va vaqtingizni maroqli o‘tkazing!</p>
+  <button class="btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+   O‘yinlarni ko‘rish →
+  </button>
  </div>
 </section>
 
 <div class="section-head" id="games">
  <h2>🔥 Mashhur o‘yinlar</h2>
- <span style="color:#9aa8c0;font-size:13px">GamesUZ tanlovi</span>
+ <span class="muted">GamesUZ tanlovi</span>
 </div>
 
 <div class="categories">
@@ -196,52 +213,116 @@ nav a{font-size:12px}
  <button class="cat" data-cat="poyga">🏎️ Poyga</button>
  <button class="cat" data-cat="mahorat">🎯 Mahorat</button>
  <button class="cat" data-cat="sport">⚽ Sport</button>
- <button class="cat" data-cat="puzzle">🧩 Puzzle</button>
+ <button class="cat" data-cat="puzzle">🧩 Boshqotirma</button>
+ <button class="cat" data-cat="favorite">❤️ Sevimlilar</button>
 </div>
 
 <div class="grid" id="gameGrid">
+
  <article class="game" data-name="drive mad mashina poyga" data-cat="poyga">
-  <div class="art" style="background:linear-gradient(135deg,#b56b32,#235c75)"><span>🚙</span></div>
-  <div class="info"><h3>Drive Mad</h3><small>Poyga · Mashina</small>
-   <div class="game-bottom"><span class="rating">★ Mashhur</span><a class="play" href="https://poki.com/uz/g/drive-mad" target="_blank" rel="noopener">O‘ynash ↗</a></div>
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="Sport avtomobil">
+   <span class="cover-icon">🚙</span>
+  </div>
+  <div class="info">
+   <h3>Drive Mad</h3>
+   <small class="muted">Poyga · Mashina</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.8 · Mashhur</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/uz/g/drive-mad" target="_blank" rel="noopener">O‘ynash ↗</a>
+   </div>
   </div>
  </article>
+
  <article class="game" data-name="subway surfers yugurish" data-cat="mahorat">
-  <div class="art" style="background:linear-gradient(135deg,#1766b7,#d18c2c)"><span>🚆</span></div>
-  <div class="info"><h3>Subway Surfers</h3><small>Mahorat · Yugurish</small>
-   <div class="game-bottom"><span class="rating">★ Mashhur</span><a class="play" href="https://poki.com/en/g/subway-surfers" target="_blank" rel="noopener">O‘ynash ↗</a></div>
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800" alt="Poyezd">
+   <span class="cover-icon">🚆</span>
+  </div>
+  <div class="info">
+   <h3>Subway Surfers</h3>
+   <small class="muted">Mahorat · Yugurish</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.9 · Mashhur</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/en/g/subway-surfers" target="_blank" rel="noopener">O‘ynash ↗</a>
+   </div>
   </div>
  </article>
+
  <article class="game" data-name="retro bowl futbol sport" data-cat="sport">
-  <div class="art" style="background:linear-gradient(135deg,#9d3737,#303c62)"><span>🏈</span></div>
-  <div class="info"><h3>Retro Bowl</h3><small>Sport · Futbol</small>
-   <div class="game-bottom"><span class="rating">★ Sport</span><a class="play" href="https://poki.com/en/g/retro-bowl" target="_blank" rel="noopener">O‘ynash ↗</a></div>
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800" alt="Sport maydoni">
+   <span class="cover-icon">🏈</span>
+  </div>
+  <div class="info">
+   <h3>Retro Bowl</h3>
+   <small class="muted">Sport · Futbol</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.7 · Sport</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/en/g/retro-bowl" target="_blank" rel="noopener">O‘ynash ↗</a>
+   </div>
   </div>
  </article>
- <article class="game" data-name="eggy car mashina poyga" data-cat="poyga">
-  <div class="art" style="background:linear-gradient(135deg,#459d91,#d7a63e)"><span>🥚</span></div>
-  <div class="info"><h3>Eggy Car</h3><small>Poyga · Haydash</small>
-   <div class="game-bottom"><span class="rating">★ Qiziqarli</span><a class="play" href="https://poki.com/uz/g/eggy-car" target="_blank" rel="noopener">O‘ynash ↗</a></div>
+
+ <article class="game" data-name="eggy car tuxum mashina" data-cat="poyga">
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800" alt="Avtomobil">
+   <span class="cover-icon">🥚</span>
+  </div>
+  <div class="info">
+   <h3>Eggy Car</h3>
+   <small class="muted">Poyga · Haydash</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.6 · Qiziqarli</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/uz/g/eggy-car" target="_blank" rel="noopener">O‘ynash ↗</a>
+   </div>
   </div>
  </article>
- <article class="game" data-name="boshqotirma puzzle" data-cat="puzzle">
-  <div class="art" style="background:linear-gradient(135deg,#704bb5,#d57e9a)"><span>🧩</span></div>
-  <div class="info"><h3>Boshqotirmalar</h3><small>Puzzle · Mantiq</small>
-   <div class="game-bottom"><span class="rating">★ Mantiq</span><a class="play" href="https://poki.com/uz" target="_blank" rel="noopener">Ko‘rish ↗</a></div>
+
+ <article class="game" data-name="boshqotirma puzzle mantiq" data-cat="puzzle">
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800" alt="Boshqotirma">
+   <span class="cover-icon">🧩</span>
+  </div>
+  <div class="info">
+   <h3>Boshqotirmalar</h3>
+   <small class="muted">Puzzle · Mantiq</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.8 · Mantiq</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/uz" target="_blank" rel="noopener">Ko‘rish ↗</a>
+   </div>
   </div>
  </article>
+
  <article class="game" data-name="drift boss avtomobil poyga" data-cat="poyga">
-  <div class="art" style="background:linear-gradient(135deg,#276a79,#6651a8)"><span>🏁</span></div>
-  <div class="info"><h3>Drift Boss</h3><small>Poyga · Drift</small>
-   <div class="game-bottom"><span class="rating">★ Poyga</span><a class="play" href="https://poki.com/en" target="_blank" rel="noopener">Ko‘rish ↗</a></div>
+  <div class="cover">
+   <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800" alt="Sport mashina">
+   <span class="cover-icon">🏁</span>
+  </div>
+  <div class="info">
+   <h3>Drift Boss</h3>
+   <small class="muted">Poyga · Drift</small>
+   <div class="game-bottom">
+    <span class="rating">★ 4.7 · Poyga</span>
+    <button class="favorite" aria-label="Sevimliga qo‘shish">♡</button>
+    <a class="play" href="https://poki.com/en" target="_blank" rel="noopener">Ko‘rish ↗</a>
+   </div>
   </div>
  </article>
+
 </div>
-<div class="empty" id="empty">Bu nom bilan o‘yin topilmadi.</div>
+
+<div class="empty" id="empty">Bu bo‘limda o‘yin topilmadi.</div>
 
 <section class="about" id="about">
  <h2>🎮 GamesUZ haqida</h2>
- <p>GamesUZ — o‘yin ixlosmandlari uchun zamonaviy platforma. Bu yerda turli janrdagi o‘yinlarni topishingiz mumkin. O‘yin tugmalari tashqi o‘yin platformalariga olib boradi.</p>
+ <p>GamesUZ — o‘yin ixlosmandlari uchun yaratilgan zamonaviy platforma. Bu yerda turli janrdagi o‘yinlarni topishingiz, qidirishingiz va sevimlilaringizga qo‘shishingiz mumkin.</p>
+ <p class="muted">O‘yinlar tashqi platformalarda ochiladi. Rasmlar o‘yin mavzusiga mos tasvirlardir.</p>
 </section>
 </main>
 
@@ -254,8 +335,8 @@ nav a{font-size:12px}
   <p>Akkauntingizga kiring yoki yangi akkaunt yarating.</p>
   <input id="email" type="email" placeholder="Email manzilingiz">
   <input id="password" type="password" placeholder="Parolingiz">
-  <button class="primary" id="registerBtn">Ro‘yxatdan o‘tish</button>
-  <button class="primary" id="loginBtn">Email orqali kirish</button>
+  <button class="btn" id="registerBtn">Ro‘yxatdan o‘tish</button>
+  <button class="btn" id="loginBtn">Email orqali kirish</button>
   <button class="google" id="googleBtn">🌐 Google orqali kirish</button>
   <p id="message"></p>
   <p id="userInfo"></p>
@@ -267,28 +348,63 @@ const search=document.getElementById("search");
 const cards=[...document.querySelectorAll(".game")];
 const cats=[...document.querySelectorAll(".cat")];
 let category="all";
+
 function filterGames(){
  const q=search.value.toLowerCase().trim();
  let shown=0;
+
  cards.forEach(card=>{
   const matchText=(card.dataset.name+" "+card.innerText).toLowerCase().includes(q);
-  const matchCat=category==="all"||card.dataset.cat===category;
+  const matchCat=category==="all"||
+   (category==="favorite"
+    ?card.querySelector(".favorite").classList.contains("active")
+    :card.dataset.cat===category);
+
   card.style.display=matchText&&matchCat?"block":"none";
   if(matchText&&matchCat)shown++;
  });
+
  document.getElementById("empty").style.display=shown?"none":"block";
 }
+
 search.addEventListener("input",filterGames);
+
 cats.forEach(btn=>btn.addEventListener("click",()=>{
  cats.forEach(c=>c.classList.remove("active"));
  btn.classList.add("active");
  category=btn.dataset.cat;
  filterGames();
 }));
+
+document.querySelectorAll(".favorite").forEach((btn,index)=>{
+ const saved=JSON.parse(localStorage.getItem("gamesuz_favorites")||"[]");
+ if(saved.includes(index)){
+  btn.classList.add("active");
+  btn.textContent="♥";
+ }
+
+ btn.addEventListener("click",()=>{
+  let favorites=JSON.parse(localStorage.getItem("gamesuz_favorites")||"[]");
+  if(favorites.includes(index)){
+   favorites=favorites.filter(x=>x!==index);
+   btn.classList.remove("active");
+   btn.textContent="♡";
+  }else{
+   favorites.push(index);
+   btn.classList.add("active");
+   btn.textContent="♥";
+  }
+  localStorage.setItem("gamesuz_favorites",JSON.stringify(favorites));
+  filterGames();
+ });
+});
+
 const modal=document.getElementById("modal");
 document.getElementById("openLogin").onclick=()=>modal.classList.add("show");
 document.getElementById("closeLogin").onclick=()=>modal.classList.remove("show");
-modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+modal.addEventListener("click",e=>{
+ if(e.target===modal)modal.classList.remove("show");
+});
 </script>
 
 <script type="module">
@@ -306,49 +422,62 @@ const firebaseConfig={
  messagingSenderId:"267022267746",
  appId:"1:267022267746:web:ef87389fa1c764a3a6a83b"
 };
+
 const app=initializeApp(firebaseConfig);
 const auth=getAuth(app);
 const provider=new GoogleAuthProvider();
+
 const email=document.getElementById("email");
 const password=document.getElementById("password");
 const message=document.getElementById("message");
 const userInfo=document.getElementById("userInfo");
+
 function showError(error){
  const errors={
- "auth/invalid-email":"Email manzili noto‘g‘ri.",
- "auth/weak-password":"Parol kamida 6 ta belgidan iborat bo‘lsin.",
- "auth/email-already-in-use":"Bu email oldin ro‘yxatdan o‘tgan.",
- "auth/invalid-credential":"Email yoki parol noto‘g‘ri.",
- "auth/unauthorized-domain":"Sayt domeni Firebase’da ruxsat etilmagan."
+  "auth/invalid-email":"Email manzili noto‘g‘ri.",
+  "auth/weak-password":"Parol kamida 6 ta belgidan iborat bo‘lsin.",
+  "auth/email-already-in-use":"Bu email oldin ro‘yxatdan o‘tgan.",
+  "auth/invalid-credential":"Email yoki parol noto‘g‘ri.",
+  "auth/unauthorized-domain":"Sayt domeni Firebase’da ruxsat etilmagan."
  };
  message.textContent=errors[error.code]||"Xatolik: "+error.message;
 }
+
 document.getElementById("registerBtn").onclick=async()=>{
  try{
-  if(!email.value.trim()||!password.value){message.textContent="Email va parolni kiriting.";return}
+  if(!email.value.trim()||!password.value){
+   message.textContent="Email va parolni kiriting.";return;
+  }
   await createUserWithEmailAndPassword(auth,email.value.trim(),password.value);
   message.textContent="Akkaunt yaratildi!";
  }catch(e){showError(e)}
 };
+
 document.getElementById("loginBtn").onclick=async()=>{
  try{
-  if(!email.value.trim()||!password.value){message.textContent="Email va parolni kiriting.";return}
+  if(!email.value.trim()||!password.value){
+   message.textContent="Email va parolni kiriting.";return;
+  }
   await signInWithEmailAndPassword(auth,email.value.trim(),password.value);
   message.textContent="Muvaffaqiyatli kirdingiz!";
  }catch(e){showError(e)}
 };
+
 document.getElementById("googleBtn").onclick=async()=>{
  try{
   await signInWithPopup(auth,provider);
   message.textContent="Google orqali kirdingiz!";
  }catch(e){showError(e)}
 };
+
 document.getElementById("logout").onclick=async()=>{
  try{await signOut(auth)}catch(e){showError(e)}
 };
+
 onAuthStateChanged(auth,user=>{
  const login=document.getElementById("openLogin");
  const logout=document.getElementById("logout");
+
  if(user){
   login.style.display="none";
   logout.style.display="block";
