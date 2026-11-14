@@ -3,375 +3,292 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GamesUZ 3.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GamesUZ | O‘yinlar olami</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial;background:#080d1b;color:white}
-header{background:#111b30;padding:17px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5;border-bottom:1px solid #263957}
-.logo{font-size:27px;font-weight:bold;color:#58a5ff}
-.logo span{color:white}
-button{border:0;border-radius:9px;padding:11px 15px;cursor:pointer;font-weight:bold}
-.primary{background:linear-gradient(120deg,#287bff,#794bff);color:white}
-.secondary{background:#263957;color:white}
-.danger{background:#a52e43;color:white}
-header button{margin-left:5px}
-.hero{padding:65px 7%;background:radial-gradient(ellipse at 80% 20%,#293d79,transparent 50%),#10182b}
-.hero h1{font-size:clamp(34px,6vw,60px);max-width:700px}
-.hero h1 span{color:#60aaff}
-.hero p{color:#aab8d3;margin:18px 0;line-height:1.6}
-.search{display:flex;gap:10px;max-width:550px}
-input,textarea{background:#111c32;border:1px solid #304363;color:white;padding:13px;border-radius:9px;width:100%;margin:5px 0}
-.search input{flex:1;min-width:0}
-main{padding:35px 7%;min-height:400px}
-h2{margin-bottom:20px}
-.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
-.filters button{background:#1a2944;color:#c5d5ef}
-.filters button.active{background:#347cff;color:white}
-.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
-.game{background:#111b30;border:1px solid #263957;border-radius:14px;overflow:hidden}
-.game img{width:100%;height:145px;object-fit:cover;background:#202d48}
-.game-content{padding:15px}
-.game-content h3{margin-bottom:8px}
-.game-content p{font-size:13px;color:#aab8d3;min-height:35px;line-height:1.5}
-.game-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:15px;gap:8px}
-.tag{background:#1c3153;color:#7db6ff;padding:6px 9px;border-radius:20px;font-size:12px}
-.game-bottom a{background:#347cff;color:white;text-decoration:none;padding:9px 12px;border-radius:8px;font-size:13px}
-.admin-panel{display:none;background:#11182a;padding:25px 7%;border-bottom:1px solid #344969}
-.admin-panel.show{display:block}
-.admin-form{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.admin-form textarea{grid-column:1/-1}
-.admin-list{display:grid;gap:10px;margin-top:18px}
-.admin-item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#1a2944;padding:12px;border-radius:10px}
-.admin-item button{margin-left:5px}
-.modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:15px}
-.modal.show{display:flex}
-.modal-box{background:#111d34;padding:25px;border-radius:15px;width:100%;max-width:420px}
-.modal-box h2{margin-bottom:12px}
-.modal-box button{margin-top:8px}
-.small{color:#aab8d3;font-size:13px;margin-top:10px;line-height:1.5}
-footer{text-align:center;background:#111b30;padding:25px;color:#aab8d3}
-@media(max-width:600px){
- header{padding:14px 4%}
- .logo{font-size:22px}
- header button{font-size:11px;padding:9px}
- .hero{padding:45px 5%}
- main,.admin-panel{padding:25px 5%}
- .games{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .game img{height:105px}
- .game-content{padding:10px}
- .game-content h3{font-size:15px}
- .game-bottom{align-items:flex-start;flex-direction:column}
- .game-bottom a{width:100%;text-align:center}
- .admin-form{grid-template-columns:1fr}
- .admin-form textarea{grid-column:auto}
- .admin-item{align-items:flex-start;flex-direction:column}
-}
+body{font-family:Arial,sans-serif;background:#090d1c;color:white}
+header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;background:#111831;position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:bold;color:#65a5ff}
+button{border:0;padding:11px 16px;border-radius:9px;background:#3478f6;color:white;cursor:pointer;font-weight:bold;margin:3px}
+button:hover{opacity:.85}
+input,select{padding:12px;border-radius:8px;border:1px solid #34415f;background:#17213b;color:white;width:100%;margin:7px 0}
+main{padding:25px 5%}
+.hero{padding:35px 20px;background:linear-gradient(120deg,#182b58,#472c83);border-radius:18px;margin-bottom:25px}
+.hero h1{font-size:32px;margin-bottom:10px}
+.search{max-width:500px;margin:20px 0}
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.game{background:#151e35;border:1px solid #293653;border-radius:14px;overflow:hidden}
+.cover{height:125px;background:linear-gradient(135deg,#284b91,#633e9b);display:flex;align-items:center;justify-content:center;font-size:42px}
+.game-info{padding:14px}
+.game-info h3{margin-bottom:8px}
+.game-info p{color:#aab6d0;font-size:13px}
+.game-info button{width:100%;margin:10px 0 0}
+.panel{display:none;background:#151e35;border:1px solid #34415f;padding:18px;border-radius:14px;margin:20px 0}
+.panel h2{margin-bottom:12px}
+#status{font-size:13px;color:#9fb7e9;margin-top:10px}
+footer{text-align:center;padding:30px;color:#8290ae}
+.hidden{display:none!important}
 </style>
 </head>
 <body>
 
 <header>
- <div class="logo">Games<span>UZ</span></div>
- <div>
-  <button class="secondary" id="loginBtn">Kirish</button>
-  <button class="primary" id="adminBtn" hidden>Admin</button>
-  <button class="secondary" id="logoutBtn" hidden>Chiqish</button>
- </div>
+  <div class="logo">🎮 GamesUZ</div>
+  <div>
+    <button id="loginBtn" onclick="googleLogin()">Google orqali kirish</button>
+    <button id="adminBtn" class="hidden" onclick="toggleAdmin()">Admin</button>
+    <button id="logoutBtn" class="hidden" onclick="logout()">Chiqish</button>
+  </div>
 </header>
 
-<section class="hero">
- <h1>O‘yinlar olamiga <span>xush kelibsiz!</span></h1>
- <p>Eng qiziqarli o‘yinlarni bir joyda toping va o‘ynang!</p>
- <div class="search">
-  <input id="searchInput" placeholder="O‘yin qidirish...">
-  <button class="primary" id="searchBtn">Qidirish</button>
- </div>
-</section>
-
-<section class="admin-panel" id="adminPanel">
- <h2>⚙️ Admin panel</h2>
- <div class="admin-form">
-  <input id="gameName" placeholder="O‘yin nomi">
-  <input id="gameCategory" placeholder="Kategoriya">
-  <input id="gameImage" placeholder="Rasm URL">
-  <input id="gameUrl" placeholder="O‘yin URL">
-  <textarea id="gameDescription" placeholder="O‘yin haqida ma’lumot"></textarea>
- </div>
- <button class="primary" id="saveGameBtn">O‘yinni qo‘shish</button>
- <button class="secondary" id="cancelEditBtn" hidden>Bekor qilish</button>
- <h3 style="margin-top:25px">O‘yinlarni boshqarish</h3>
- <div class="admin-list" id="adminList"></div>
-</section>
-
 <main>
- <h2>🔥 Mashhur o‘yinlar</h2>
- <div class="filters" id="filters">
-  <button class="active" data-category="Barchasi">Barchasi</button>
-  <button data-category="Poyga">🏎️ Poyga</button>
-  <button data-category="Sarguzasht">🗺️ Sarguzasht</button>
-  <button data-category="Sport">⚽ Sport</button>
-  <button data-category="Boshqalar">🎮 Boshqalar</button>
- </div>
- <div class="games" id="gamesList">Yuklanmoqda...</div>
+  <section class="hero">
+    <h1>GamesUZ olamiga xush kelibsiz!</h1>
+    <p>Eng qiziqarli o‘yinlar bir joyda.</p>
+  </section>
+
+  <input class="search" id="search" placeholder="🔎 O‘yin qidirish..." oninput="renderGames()">
+
+  <div class="categories">
+    <button onclick="setCategory('Barchasi')">Barchasi</button>
+    <button onclick="setCategory('Poyga')">Poyga</button>
+    <button onclick="setCategory('Sarguzasht')">Sarguzasht</button>
+    <button onclick="setCategory('Sport')">Sport</button>
+  </div>
+
+  <section id="adminPanel" class="panel">
+    <h2>🛠 Admin panel</h2>
+    <input id="gameName" placeholder="O‘yin nomi">
+    <select id="gameCategory">
+      <option>Poyga</option>
+      <option>Sarguzasht</option>
+      <option>Sport</option>
+      <option>Boshqa</option>
+    </select>
+    <input id="gameUrl" placeholder="O‘yin havolasi (https://...)">
+    <button onclick="saveGame()">O‘yinni saqlash</button>
+    <button onclick="cancelEdit()" style="background:#59647c">Tozalash</button>
+    <p id="status"></p>
+  </section>
+
+  <h2 style="margin-bottom:18px">🔥 O‘yinlar katalogi</h2>
+  <section class="games" id="games">
+    <p>O‘yinlar yuklanmoqda...</p>
+  </section>
 </main>
 
-<footer>© 2026 GamesUZ</footer>
-
-<div class="modal" id="authModal">
- <div class="modal-box">
-  <h2>GamesUZ akkaunt</h2>
-  <input id="emailInput" type="email" placeholder="Email">
-  <input id="passwordInput" type="password" placeholder="Parol">
-  <button class="primary" id="emailLoginBtn" style="width:100%">Email orqali kirish</button>
-  <button class="secondary" id="registerBtn" style="width:100%">Ro‘yxatdan o‘tish</button>
-  <button class="primary" id="googleBtn" style="width:100%">Google orqali kirish</button>
-  <button class="secondary" id="closeModalBtn" style="width:100%">Yopish</button>
-  <p class="small" id="authMessage"></p>
- </div>
-</div>
+<footer>© 2026 GamesUZ. Barcha huquqlar himoyalangan.</footer>
 
 <script type="module">
-import {initializeApp}
- from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
- getAuth,GoogleAuthProvider,signInWithRedirect,
- getRedirectResult,onAuthStateChanged,signOut,
- createUserWithEmailAndPassword,signInWithEmailAndPassword
+ getAuth, GoogleAuthProvider, signInWithRedirect,
+ getRedirectResult, onAuthStateChanged, signOut,
+ signInWithEmailAndPassword, createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
- getFirestore,collection,addDoc,updateDoc,
- deleteDoc,doc,onSnapshot,serverTimestamp
+ getFirestore, collection, addDoc, onSnapshot,
+ doc, updateDoc, deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const firebaseConfig={
- apiKey:"AIzaSyCTVxujX9oQhEZvMu3_prvw9VudTK8",
- authDomain:"gameuz.firebaseapp.com",
- projectId:"gameuz",
- storageBucket:"gameuz.firebasestorage.app",
- messagingSenderId:"267022267746",
- appId:"1:267022267746:web:ef87389fa1c764a3a6a83b"
+const firebaseConfig = {
+ apiKey: "AIzaSyCTVxXujxO9hQezvMu3_prvw9VudtTK8G4",
+ authDomain: "gameuz.firebaseapp.com",
+ projectId: "gameuz",
+ storageBucket: "gameuz.firebasestorage.app",
+ messagingSenderId: "267022267746",
+ appId: "1:267022267746:web:ef87389fa1c764a3a6a83b",
+ measurementId: "G-73GWY72GE1"
 };
 
-const ADMIN_UID="DXEza5I4zsXE3PpgKxfr9NUDMGw2";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
-const app=initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const db=getFirestore(app);
-const provider=new GoogleAuthProvider();
+const ADMIN_UID = "DXEza5I4zsXE3PpgKxfr9NUDMGw2";
 
-let currentUser=null;
-let games=[];
-let editingId=null;
-let activeCategory="Barchasi";
+let games = [];
+let category = "Barchasi";
+let editingId = null;
+let isAdmin = false;
 
-const $=id=>document.getElementById(id);
+window.googleLogin = async () => {
+ try {
+  await signInWithRedirect(auth, provider);
+ } catch(error) {
+  alert("Google orqali kirishda xato: " + error.message);
+ }
+};
 
-function safeUrl(value){
- try{
-  const u=new URL(value);
-  return ["https:","http:"].includes(u.protocol)?u.href:"";
- }catch{return "";}
-}
+getRedirectResult(auth).catch(error => {
+ document.getElementById("status").textContent =
+ "Kirish xatosi: " + error.message;
+});
 
-function escapeHTML(value=""){
- return String(value).replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
-}
+onAuthStateChanged(auth, user => {
+ const loggedIn = !!user;
+ isAdmin = loggedIn && user.uid === ADMIN_UID;
 
-function renderGames(){
- const search=$("searchInput").value.toLowerCase().trim();
- const list=games.filter(g=>{
-  const cat=g.category||"Boshqalar";
-  const categoryMatch=activeCategory==="Barchasi"||
-   cat===activeCategory||
-   (activeCategory==="Boshqalar"&&!["Poyga","Sport","Sarguzasht"].includes(cat));
-  return categoryMatch&&(g.name||"").toLowerCase().includes(search);
- });
+ document.getElementById("loginBtn").classList.toggle("hidden", loggedIn);
+ document.getElementById("logoutBtn").classList.toggle("hidden", !loggedIn);
+ document.getElementById("adminBtn").classList.toggle("hidden", !isAdmin);
 
- $("gamesList").replaceChildren();
+ if(!isAdmin){
+  document.getElementById("adminPanel").style.display = "none";
+ }
+});
+
+window.logout = async () => {
+ await signOut(auth);
+ document.getElementById("adminPanel").style.display = "none";
+};
+
+window.toggleAdmin = () => {
+ if(!isAdmin) return;
+ const panel = document.getElementById("adminPanel");
+ panel.style.display = panel.style.display === "block" ? "none" : "block";
+};
+
+onSnapshot(collection(db,"games"), snapshot => {
+ games = snapshot.docs.map(d => ({id:d.id,...d.data()}));
+ renderGames();
+}, error => {
+ document.getElementById("games").innerHTML =
+ "<p>O‘yinlarni yuklashda xato: " + error.message + "</p>";
+});
+
+window.setCategory = value => {
+ category = value;
+ renderGames();
+};
+
+window.renderGames = () => {
+ const search = document.getElementById("search").value.toLowerCase();
+ const list = games.filter(g =>
+  (category === "Barchasi" || g.category === category) &&
+  (g.name || "").toLowerCase().includes(search)
+ );
+
+ const container = document.getElementById("games");
 
  if(!list.length){
-  $("gamesList").textContent="Hozircha o‘yin topilmadi.";
+  container.innerHTML = "<p>Hozircha o‘yin topilmadi.</p>";
   return;
  }
 
- list.forEach(g=>{
-  const card=document.createElement("article");
-  card.className="game";
-  const image=safeUrl(g.image)||"https://placehold.co/600x350/17243d/ffffff?text=GamesUZ";
-  const url=safeUrl(g.gameUrl);
+ container.innerHTML = "";
 
-  card.innerHTML=`
-   <img src="${escapeHTML(image)}" alt="${escapeHTML(g.name||"O‘yin")}">
-   <div class="game-content">
-    <h3>${escapeHTML(g.name||"Nomsiz o‘yin")}</h3>
-    <p>${escapeHTML(g.description||"Qiziqarli o‘yin. Sinab ko‘ring!")}</p>
-    <div class="game-bottom">
-     <span class="tag">${escapeHTML(g.category||"Boshqalar")}</span>
-     ${url?`<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">O‘ynash →</a>`:""}
-    </div>
-   </div>`;
-  $("gamesList").appendChild(card);
- });
-}
+ list.forEach(g => {
+  const card = document.createElement("article");
+  card.className = "game";
 
-function renderAdmin(){
- $("adminList").replaceChildren();
- games.forEach(g=>{
-  const item=document.createElement("div");
-  item.className="admin-item";
-  const name=document.createElement("strong");
-  name.textContent=g.name||"Nomsiz o‘yin";
+  const cover = document.createElement("div");
+  cover.className = "cover";
+  cover.textContent = "🎮";
 
-  const actions=document.createElement("div");
-  const edit=document.createElement("button");
-  edit.className="secondary";
-  edit.textContent="Tahrirlash";
-  edit.onclick=()=>startEdit(g);
+  const info = document.createElement("div");
+  info.className = "game-info";
 
-  const remove=document.createElement("button");
-  remove.className="danger";
-  remove.textContent="O‘chirish";
-  remove.onclick=()=>removeGame(g.id);
+  const title = document.createElement("h3");
+  title.textContent = g.name || "Nomsiz o‘yin";
 
-  actions.append(edit,remove);
-  item.append(name,actions);
-  $("adminList").appendChild(item);
- });
-}
+  const cat = document.createElement("p");
+  cat.textContent = g.category || "Boshqa";
 
-function startEdit(g){
- editingId=g.id;
- $("gameName").value=g.name||"";
- $("gameCategory").value=g.category||"";
- $("gameImage").value=g.image||"";
- $("gameUrl").value=g.gameUrl||"";
- $("gameDescription").value=g.description||"";
- $("saveGameBtn").textContent="O‘zgarishlarni saqlash";
- $("cancelEditBtn").hidden=false;
- $("adminPanel").scrollIntoView({behavior:"smooth"});
-}
+  const play = document.createElement("button");
+  play.textContent = "▶ O‘ynash";
+  play.onclick = () => {
+   if(g.gameUrl) window.open(g.gameUrl,"_blank","noopener");
+   else alert("Bu o‘yinga havola qo‘shilmagan.");
+  };
 
-function resetForm(){
- editingId=null;
- ["gameName","gameCategory","gameImage","gameUrl","gameDescription"]
- .forEach(id=>$(id).value="");
- $("saveGameBtn").textContent="O‘yinni qo‘shish";
- $("cancelEditBtn").hidden=true;
-}
+  info.append(title,cat,play);
 
-async function saveGame(){
- if(currentUser?.uid!==ADMIN_UID){
-  alert("Faqat admin ruxsatiga ega!");
-  return;
- }
- const name=$("gameName").value.trim();
- const category=$("gameCategory").value.trim();
- const image=$("gameImage").value.trim();
- const gameUrl=$("gameUrl").value.trim();
- const description=$("gameDescription").value.trim();
+  if(isAdmin){
+   const edit = document.createElement("button");
+   edit.textContent = "✏️ Tahrirlash";
+   edit.style.background = "#6a56bb";
+   edit.onclick = () => editGame(g.id);
 
- if(!name||!category){
-  alert("O‘yin nomi va kategoriyasini kiriting.");
-  return;
- }
- if((image&&!safeUrl(image))||(gameUrl&&!safeUrl(gameUrl))){
-  alert("URL manzili noto‘g‘ri.");
-  return;
- }
+   const del = document.createElement("button");
+   del.textContent = "🗑 O‘chirish";
+   del.style.background = "#bd4050";
+   del.onclick = () => removeGame(g.id);
 
- const data={name,category,image,gameUrl,description};
-
- try{
-  if(editingId){
-   await updateDoc(doc(db,"games",editingId),data);
-  }else{
-   await addDoc(collection(db,"games"),{
-    ...data,createdAt:serverTimestamp()
-   });
+   info.append(edit,del);
   }
-  resetForm();
-  alert("O‘yin saqlandi!");
- }catch(e){
-  alert("Saqlash xatosi: "+e.message);
- }
-}
 
-async function removeGame(id){
- if(!confirm("O‘yinni o‘chirmoqchimisiz?"))return;
- try{
+  card.append(cover,info);
+  container.append(card);
+ });
+};
+
+window.saveGame = async () => {
+ if(!isAdmin) return alert("Siz admin emassiz.");
+
+ const name = document.getElementById("gameName").value.trim();
+ const cat = document.getElementById("gameCategory").value;
+ const url = document.getElementById("gameUrl").value.trim();
+ const status = document.getElementById("status");
+
+ if(!name || !url){
+  status.textContent = "O‘yin nomi va havolasini kiriting.";
+  return;
+ }
+
+ try {
+  new URL(url);
+  if(editingId){
+   await updateDoc(doc(db,"games",editingId),{
+    name,category:cat,gameUrl:url
+   });
+   status.textContent = "O‘yin yangilandi!";
+  } else {
+   await addDoc(collection(db,"games"),{
+    name,category:cat,gameUrl:url
+   });
+   status.textContent = "Yangi o‘yin qo‘shildi!";
+  }
+  cancelEdit();
+ } catch(error) {
+  status.textContent = "Xato: " + error.message;
+ }
+};
+
+window.editGame = id => {
+ if(!isAdmin) return;
+ const g = games.find(x => x.id === id);
+ if(!g) return;
+
+ editingId = id;
+ document.getElementById("gameName").value = g.name || "";
+ document.getElementById("gameCategory").value = g.category || "Boshqa";
+ document.getElementById("gameUrl").value = g.gameUrl || "";
+ document.getElementById("adminPanel").style.display = "block";
+ document.getElementById("status").textContent = "O‘yinni tahrirlayapsiz.";
+};
+
+window.cancelEdit = () => {
+ editingId = null;
+ document.getElementById("gameName").value = "";
+ document.getElementById("gameUrl").value = "";
+ document.getElementById("status").textContent = "";
+};
+
+window.removeGame = async id => {
+ if(!isAdmin) return;
+ if(!confirm("Bu o‘yinni o‘chirmoqchimisiz?")) return;
+ try {
   await deleteDoc(doc(db,"games",id));
- }catch(e){alert("Xatolik: "+e.message);}
-}
-
-onSnapshot(collection(db,"games"),snapshot=>{
- games=snapshot.docs.map(d=>({id:d.id,...d.data()}));
- renderGames();
- if(currentUser?.uid===ADMIN_UID)renderAdmin();
-},error=>{
- $("gamesList").textContent="O‘yinlarni yuklab bo‘lmadi: "+error.message;
-});
-
-onAuthStateChanged(auth,user=>{
- currentUser=user;
- const isAdmin=user?.uid===ADMIN_UID;
- $("loginBtn").hidden=!!user;
- $("logoutBtn").hidden=!user;
- $("adminBtn").hidden=!isAdmin;
- if(!isAdmin)$("adminPanel").classList.remove("show");
- if(isAdmin)renderAdmin();
-});
-
-$("loginBtn").onclick=()=>$("authModal").classList.add("show");
-$("closeModalBtn").onclick=()=>$("authModal").classList.remove("show");
-$("adminBtn").onclick=()=>$("adminPanel").classList.toggle("show");
-$("logoutBtn").onclick=()=>signOut(auth);
-$("saveGameBtn").onclick=saveGame;
-$("cancelEditBtn").onclick=resetForm;
-$("searchBtn").onclick=renderGames;
-$("searchInput").addEventListener("input",renderGames);
-
-$("filters").onclick=e=>{
- const b=e.target.closest("button[data-category]");
- if(!b)return;
- activeCategory=b.dataset.category;
- document.querySelectorAll(".filters button").forEach(x=>
-  x.classList.toggle("active",x===b));
- renderGames();
-};
-
-$("emailLoginBtn").onclick=async()=>{
- try{
-  await signInWithEmailAndPassword(auth,
-   $("emailInput").value,$("passwordInput").value);
-  $("authModal").classList.remove("show");
- }catch(e){$("authMessage").textContent=e.message;}
-};
-
-$("registerBtn").onclick=async()=>{
- try{
-  await createUserWithEmailAndPassword(auth,
-   $("emailInput").value,$("passwordInput").value);
-  $("authModal").classList.remove("show");
- }catch(e){$("authMessage").textContent=e.message;}
-};
-
-$("googleBtn").onclick=async()=>{
- try{
-  await signInWithRedirect(auth,provider);
- }catch(e){
-  $("authMessage").textContent=e.code+": "+e.message;
+ } catch(error) {
+  alert("O‘chirishda xato: " + error.message);
  }
 };
-
-getRedirectResult(auth).catch(e=>{
- $("authMessage").textContent=e.code+": "+e.message;
- console.error(e);
-});
 </script>
 </body>
 </html>
